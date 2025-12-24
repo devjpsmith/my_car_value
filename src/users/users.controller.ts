@@ -1,5 +1,4 @@
 import {
-  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -9,12 +8,13 @@ import {
   Post,
   UseFilters,
 } from '@nestjs/common';
-import { CreateUserDto } from './dtos/createUserDto';
-import { PatchUserDto } from './dtos/patchUserDto';
+import { PatchUserDto, CreateUserDto, UserDto } from './user.dto';
 import { UsersService } from './users.service';
-import { BadRequestExceptionFilter } from '../lib/filters/BadRequestExceptionFilter';
-import { NotFoundExceptionFilter } from '../lib/filters/NotFoundExceptionFilter';
+import { BadRequestExceptionFilter } from '../lib/filters/bad-request-exception.filter';
+import { NotFoundExceptionFilter } from '../lib/filters/not-found-exception.filter';
+import { Serialize, SerializeInterceptor } from '../lib/interceptors/serialize.interceptor';
 
+@Serialize(UserDto)
 @Controller('auth')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}

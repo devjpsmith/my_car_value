@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from './user.entity';
-import { ConstraintViolationException } from '../lib/errors/constraintViolationException';
-import { EntityNotFoundException } from '../lib/errors/entityNotFoundException';
+import { ConstraintViolationException } from '../lib/errors/constraint-violation.exception';
+import { EntityNotFoundException } from '../lib/errors/entity-not-found.exception';
 
 @Injectable()
 export class UsersService {

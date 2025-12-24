@@ -1,5 +1,5 @@
 import { Catch, ExceptionFilter, NotFoundException } from '@nestjs/common';
-import { EntityNotFoundException } from '../errors/entityNotFoundException';
+import { EntityNotFoundException } from '../errors/entity-not-found.exception';
 
 @Catch(EntityNotFoundException)
 export class NotFoundExceptionFilter implements ExceptionFilter {
