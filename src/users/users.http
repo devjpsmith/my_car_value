@@ -1,0 +1,26 @@
+@endpoint = {{host}}/auth
+
+POST {{endpoint}}/signup
+Content-Type: application/json
+
+{
+  "email": "james@test.com",
+  "password": "testPassword",
+  "username": "Jimmy"
+}
+###
+PATCH {{endpoint}}/1
+Content-Type: application/json
+
+{
+  "password": "newTestPassword"
+}
+###
+GET {{endpoint}}/1
+
+###
+GET {{endpoint}}/search/james%40test.com
+
+###
+DELETE {{endpoint}}/1
+
